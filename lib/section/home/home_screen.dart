@@ -57,9 +57,37 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
 
-        if (homeState is HomeError) {}
+        if (homeState is HomeError) {
+          return BlocProviderTree(
+            blocProviders: [
+              BlocProvider<HomeBloc>(
+                bloc: _homeBloc,
+              ),
+            ],
+            child: Scaffold(
+              resizeToAvoidBottomPadding: false,
+              backgroundColor: Colors.white,
+              appBar: AppBar(title: Text('Movie DB - Flutter')),
+              body: null,
+            ),
+          );
+        }
 
-        if (homeState is HomeLoading) {}
+        if (homeState is HomeLoading) {
+          return BlocProviderTree(
+            blocProviders: [
+              BlocProvider<HomeBloc>(
+                bloc: _homeBloc,
+              ),
+            ],
+            child: Scaffold(
+              resizeToAvoidBottomPadding: false,
+              backgroundColor: Colors.white,
+              appBar: AppBar(title: Text('Movie DB - Flutter')),
+              body: null,
+            ),
+          );
+        }
       },
     );
   }
